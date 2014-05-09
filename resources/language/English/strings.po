@@ -1,0 +1,111 @@
+# XBMC Media Center language file
+# Addon Name: Quick Audio Switch
+# Addon id: script.quick.audio.switch
+# Addon Provider: henricos
+msgid ""
+msgstr ""
+"Project-Id-Version: XBMC Main Translation Project (Frodo)\n"
+"Report-Msgid-Bugs-To: http://trac.xbmc.org/\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: XBMC Translation Team\n"
+"Language-Team: English (http://www.transifex.com/projects/p/XBMC-Main-Frodo/language/en/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#32101"
+msgid "Audio Profile 1"
+msgstr ""
+
+msgctxt "#32102"
+msgid "Audio Profile 2"
+msgstr ""
+
+msgctxt "#32103"
+msgid "Audio Profile 3"
+msgstr ""
+
+#empty strings from id 32103 to 32109
+
+msgctxt "#32110"
+msgid "Profile name"
+msgstr ""
+
+msgctxt "#32111"
+msgid "Enabled"
+msgstr ""
+
+#empty strings from id 32112 to 321019
+
+msgctxt "#32120"
+msgid "Audio output device"
+msgstr ""
+
+msgctxt "#32121"
+msgid "Number of channels"
+msgstr ""
+
+msgctxt "#32122"
+msgid "Output configuration"
+msgstr ""
+
+msgctxt "#32123"
+msgid "Limit sampling rate (kHz)"
+msgstr ""
+
+msgctxt "#32124"
+msgid "Stereo upmix"
+msgstr ""
+
+msgctxt "#32125"
+msgid "Normalize levels on downmix"
+msgstr ""
+
+msgctxt "#32126"
+msgid "Resample quality"
+msgstr ""
+
+msgctxt "#32127"
+msgid "Keep audio device alive"
+msgstr ""
+
+msgctxt "#32128"
+msgid "Play GUI sounds"
+msgstr ""
+
+msgctxt "#32129"
+msgid "Enable passthrough"
+msgstr ""
+
+msgctxt "#32130"
+msgid "Passthrough output device"
+msgstr ""
+
+msgctxt "#32131"
+msgid "Dolby Digital (AC3) capable receiver"
+msgstr ""
+
+msgctxt "#32132"
+msgid "Enable Dolby Digital transcoding"
+msgstr ""
+
+msgctxt "#32133"
+msgid "Dolby Digital Plus (E-AC3) capable receiver"
+msgstr ""
+
+msgctxt "#32134"
+msgid "DTS capable receiver"
+msgstr ""
+
+msgctxt "#32135"
+msgid "TrueHD capable receiver"
+msgstr ""
+
+msgctxt "#32136"
+msgid "DTS-HD capable receiver"
+msgstr ""
+
+

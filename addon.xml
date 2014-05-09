@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.quick.audio.switch" name="Quick Audio Switch" version="0.1.0" provider-name="henricos">
+  <requires>
+    <import addon="xbmc.gui" version="5.0.1"/>
+    <import addon="xbmc.python" version="2.14.0"/>
+    <import addon="xbmc.addon" version="6.6.0"/>
+  </requires>
+  <extension point="xbmc.python.script" 
+             library="default.py">
+  </extension> 
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Switch between audio configurations with one click</summary>
+    <description lang="en">This add-on can be used to switch between different audio configurations with one click</description>
+    <disclaimer lang="en"></disclaimer>
+    <language></language>
+    <platform>all</platform>
+    <license></license>
+    <forum></forum>
+    <website></website>
+    <email></email>
+    <source></source>
+  </extension>
+</addon>
