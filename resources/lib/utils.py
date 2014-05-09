@@ -82,6 +82,106 @@ def getSettingOptions(setting):
 
 # ############################################################
 
+def setSettingValue(setting, value):
+	query = '{"jsonrpc":"2.0","method":"Settings.SetSettingValue", "params":{"setting":"' + setting + '","value":' + value + '},"id":1}'
+	ret = False
+	
+	response = executeJSONRPC(query)
+	
+	if response == True:
+		ret = True
+		
+	return ret
+
+# ############################################################
+
+def nextAudioProfile():
+		nextprofile = __addon__.getSetting('profile.nextprofile')
+		if nextprofile == '1':
+			nextprofile = '2'
+		else:
+			nextprofile = '1'
+			
+		print nextprofile
+		
+		audiodevicecategory = __addon__.getSetting('profile.audiodevicecategory.' + nextprofile)
+		
+		if audiodevicecategory == 'HDMI':
+			settingslist = ['audiooutput.audiodevice', 
+							'audiooutput.channels', 
+							'audiooutput.config', 
+							#'audiooutput.samplerate', 
+							'audiooutput.stereoupmix', 
+							'audiooutput.normalizelevels', 
+							'audiooutput.processquality', 
+							'audiooutput.streamsilence', 
+							'audiooutput.guisoundmode', 
+							'audiooutput.passthrough',							
+							'audiooutput.passthroughdevice', 
+							'audiooutput.ac3passthrough', 
+							'audiooutput.ac3transcode', 
+							'audiooutput.eac3passthrough', 
+							'audiooutput.dtspassthrough', 
+							'audiooutput.truehdpassthrough', 
+							'audiooutput.dtshdpassthrough']
+		elif audiodevicecategory == 'SPDIF':
+			settingslist = ['audiooutput.audiodevice', 
+							#'audiooutput.channels', 
+							'audiooutput.config', 
+							'audiooutput.samplerate', 
+							'audiooutput.stereoupmix', 
+							'audiooutput.normalizelevels', 
+							'audiooutput.processquality', 
+							'audiooutput.streamsilence', 
+							'audiooutput.guisoundmode', 
+							'audiooutput.passthrough',
+							'audiooutput.passthroughdevice', 
+							'audiooutput.ac3passthrough', 
+							'audiooutput.ac3transcode', 
+							'audiooutput.eac3passthrough', 
+							'audiooutput.dtspassthrough', 
+							'audiooutput.truehdpassthrough', 
+							'audiooutput.dtshdpassthrough']
+		else:
+			settingslist = ['audiooutput.audiodevice', 
+							'audiooutput.channels', 
+							'audiooutput.config', 
+							#'audiooutput.samplerate', 
+							'audiooutput.stereoupmix', 
+							'audiooutput.normalizelevels', 
+							'audiooutput.processquality', 
+							'audiooutput.streamsilence', 
+							'audiooutput.guisoundmode', 
+							#'audiooutput.passthrough',
+							#'audiooutput.passthroughdevice', 
+							#'audiooutput.ac3passthrough', 
+							#'audiooutput.ac3transcode', 
+							#'audiooutput.eac3passthrough', 
+							#'audiooutput.dtspassthrough', 
+							#'audiooutput.truehdpassthrough', 
+							#'audiooutput.dtshdpassthrough'
+							]
+
+		allok = True
+		for setting in settingslist:
+			value = __addon__.getSetting(setting + '.value.' + nextprofile)
+			
+			if setting in ['audiooutput.audiodevice','audiooutput.passthroughdevice']:
+				value = '"' + value + '"'			
+			writeToLog('Setting: %s ==> Value: %s' % (setting, value), xbmc.LOGDEBUG)
+			result = setSettingValue(setting, value)
+			if result == False:
+				allopk = False
+
+		if allok == True:
+			notify('OK')
+			__addon__.setSetting('profile.nextprofile', nextprofile)
+		else:
+			notify('Error')
+
+	
+# ############################################################
+
 def openDialogSelect(setting, profileno, titlestringno):
 	options = getSettingOptions(setting)
 	
@@ -95,7 +195,10 @@ def openDialogSelect(setting, profileno, titlestringno):
 		__addon__.setSetting(setting + '.value.' + profileno, options[keyselected].__str__())
 		if setting == 'audiooutput.audiodevice':
 			if 'HDMI' in keyselected:
-				__addon__.setSetting('profile.audiodevicecategory.' + profileno, 'HDMISPDIF')
+				audiodevicecategory = 'HDMI'
+			elif 'SPDIF' in keyselected:
+				audiodevicecategory = 'SPDIF'
 			else:
-				__addon__.setSetting('profile.audiodevicecategory.' + profileno, 'ANALOG')
+				audiodevicecategory = 'Analog'
+			__addon__.setSetting('profile.audiodevicecategory.' + profileno, audiodevicecategory)
 	

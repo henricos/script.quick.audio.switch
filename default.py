@@ -20,7 +20,7 @@ __resource__   = xbmc.translatePath(os.path.join( __cwd__, 'resources', 'lib' ))
 # Append resource lib to path
 sys.path.append(__resource__)
 
-# Import extra functions (utils)
+# Import extra libraries
 import utils
 
 # ###################################################################################
@@ -76,8 +76,13 @@ else:
 	utils.notify('Script Started')
 
 	audiosettings = utils.getAudioSettings()
-	print 'Audio Settings'
+	print '-- Audio Settings Before --'
 	print audiosettings
-		
+
+	utils.nextAudioProfile()
+
+	audiosettings = utils.getAudioSettings()
+	print '-- Audio Settings After --'
+	print audiosettings
 	
 	utils.writeToLog("------ Script Ended ------")

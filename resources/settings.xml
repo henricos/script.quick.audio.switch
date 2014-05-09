@@ -1,65 +1,66 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
 	<category label="32101">
-		<setting type="text"	id="profile.name.1"						label="32110"/>
-		<!-- <setting type="bool"	id="profile.enabled.1"					label="32111"/> -->
+		<setting type="text"	id="profile.name.1"							label="32110"	visible="true"/>
+		<!-- <setting type="bool"	id="profile.enabled.1"						label="32111"	visible="true"/> -->
 		<setting type="sep"/>
-		<setting type="action"	id="audiooutput.audiodevice.1"			label="32120"	action="RunScript($ID, audiooutput.audiodevice, 1)"/>
-		<setting type="text"	id="audiooutput.audiodevice.value.1"					visible="false"/>
-		<setting type="text"	id="profile.audiodevicecategory.1"						visible="false"/>
-		<setting type="action"	id="audiooutput.channels.1"				label="32121"	action="RunScript($ID, audiooutput.channels, 1)"/>
-		<setting type="text"	id="audiooutput.channels.value.1"						visible="false"/>
-		<setting type="action"	id="audiooutput.config.1"				label="32122"	action="RunScript($ID, audiooutput.config, 1)"/>
-		<setting type="text"	id="audiooutput.config.value.1"							visible="false"/>
-		<setting type="action"	id="audiooutput.samplerate.1"			label="32123"	action="RunScript($ID, audiooutput.samplerate, 1)"/>
-		<setting type="text"	id="audiooutput.samplerate.value.1"						visible="false"/>		
-		<setting type="bool"	id="audiooutput.stereoupmix.1"			label="32124"/>
-		<setting type="bool"	id="audiooutput.normalizelevels.1"		label="32125"/>
-		<setting type="action"	id="audiooutput.processquality.1"		label="32126"	action="RunScript($ID, audiooutput.processquality, 1)"/>
-		<setting type="text"	id="audiooutput.processquality.value.1"					visible="false"/>
-		<setting type="action"	id="audiooutput.streamsilence.1"		label="32127"	action="RunScript($ID, audiooutput.streamsilence, 1)"/>
-		<setting type="text"	id="audiooutput.streamsilence.value.1"					visible="false"/>
-		<setting type="action"	id="audiooutput.guisoundmode.1"			label="32128"	action="RunScript($ID, audiooutput.guisoundmode, 1)"/>
-		<setting type="text"	id="audiooutput.guisoundmode.value.1"					visible="false"/>
-		<setting type="bool"	id="audiooutput.passthrough.1"			label="32129"/>
-		<setting type="action"	id="audiooutput.passthroughdevice.1"	label="32130"	action="RunScript($ID, audiooutput.passthroughdevice, 1)"/>
-		<setting type="text"	id="audiooutput.passthroughdevice.value.1"				visible="false"/>
-		<setting type="bool"	id="audiooutput.ac3passthrough.1" 		label="32131"/>
-		<setting type="bool"	id="audiooutput.ac3transcode.1" 		label="32132"/>
-		<setting type="bool"	id="audiooutput.eac3passthrough.1" 		label="32133"/>
-		<setting type="bool"	id="audiooutput.dtspassthrough.1" 		label="32134"/>
-		<setting type="bool"	id="audiooutput.truehdpassthrough.1"	label="32135"/>
-		<setting type="bool"	id="audiooutput.dtshdpassthrough.1" 	label="32136"/>
+		<setting type="action"	id="audiooutput.audiodevice.1"				label="32120"	visible="true"							action="RunScript($ID, audiooutput.audiodevice, 1)"/>
+		<setting type="text"	id="audiooutput.audiodevice.value.1"						visible="false"/>
+		<setting type="text"	id="profile.audiodevicecategory.1"							visible="true"/>
+		<setting type="action"	id="audiooutput.channels.1"					label="32121"	visible="!eq(-1,SPDIF)"					action="RunScript($ID, audiooutput.channels, 1)"/>
+		<setting type="text"	id="audiooutput.channels.value.1"							visible="false"/>
+		<setting type="action"	id="audiooutput.config.1"					label="32122"	visible="true"							action="RunScript($ID, audiooutput.config, 1)"/>
+		<setting type="text"	id="audiooutput.config.value.1"								visible="false"/>
+		<setting type="action"	id="audiooutput.samplerate.1"				label="32123"	visible="eq(-5,SPDIF)"					action="RunScript($ID, audiooutput.samplerate, 1)"/>
+		<setting type="text"	id="audiooutput.samplerate.value.1"							visible="false"/>		
+		<setting type="bool"	id="audiooutput.stereoupmix.value.1"		label="32124"	visible="true"/>
+		<setting type="bool"	id="audiooutput.normalizelevels.value.1"	label="32125"	visible="true"/>
+		<setting type="action"	id="audiooutput.processquality.1"			label="32126"	visible="true"							action="RunScript($ID, audiooutput.processquality, 1)"/>
+		<setting type="text"	id="audiooutput.processquality.value.1"						visible="false"/>
+		<setting type="action"	id="audiooutput.streamsilence.1"			label="32127"	visible="true"							action="RunScript($ID, audiooutput.streamsilence, 1)"/>
+		<setting type="text"	id="audiooutput.streamsilence.value.1"						visible="false"/>
+		<setting type="action"	id="audiooutput.guisoundmode.1"				label="32128"	visible="true"							action="RunScript($ID, audiooutput.guisoundmode, 1)"/>
+		<setting type="text"	id="audiooutput.guisoundmode.value.1"						visible="false"/>
+		<setting type="bool"	id="audiooutput.passthrough.value.1"		label="32129"	visible="!eq(-15,Analog) + !eq(-15,)"/>
+		<setting type="action"	id="audiooutput.passthroughdevice.1"		label="32130"	visible="!eq(-16,Analog) + !eq(-16,)"	action="RunScript($ID, audiooutput.passthroughdevice, 1)"/>
+		<setting type="text"	id="audiooutput.passthroughdevice.value.1"					visible="false"/>
+		<setting type="bool"	id="audiooutput.ac3passthrough.value.1" 	label="32131" 	visible="!eq(-18,Analog) + !eq(-18,)"/>
+		<setting type="bool"	id="audiooutput.ac3transcode.value.1" 		label="32132" 	visible="!eq(-19,Analog) + !eq(-19,)"/>
+		<setting type="bool"	id="audiooutput.eac3passthrough.value.1" 	label="32133" 	visible="!eq(-20,Analog) + !eq(-20,)"/>
+		<setting type="bool"	id="audiooutput.dtspassthrough.value.1" 	label="32134" 	visible="!eq(-21,Analog) + !eq(-21,)"/>
+		<setting type="bool"	id="audiooutput.truehdpassthrough.value.1"	label="32135" 	visible="!eq(-22,Analog) + !eq(-22,)"/>
+		<setting type="bool"	id="audiooutput.dtshdpassthrough.value.1" 	label="32136" 	visible="!eq(-23,Analog) + !eq(-23,)"/>
 	</category>
 	<category label="32102">
-		<setting type="text"	id="profile.name.2"						label="32110"/>
-		<!-- <setting type="bool"	id="profile.enabled.2"					label="32111"/> -->
+		<setting type="text"	id="profile.name.2"							label="32110"	visible="true"/>
+		<!-- <setting type="bool"	id="profile.enabled.2"						label="32111"	visible="true"/> -->
 		<setting type="sep"/>
-		<setting type="action"	id="audiooutput.audiodevice.2"			label="32120"	action="RunScript($ID, audiooutput.audiodevice, 2)"/>
-		<setting type="text"	id="audiooutput.audiodevice.value.2"					visible="false"/>
-		<setting type="text"	id="profile.audiodevicecategory.2"						visible="false"/>
-		<setting type="action"	id="audiooutput.channels.2"				label="32121"	action="RunScript($ID, audiooutput.channels, 2)"/>
-		<setting type="text"	id="audiooutput.channels.value.2"						visible="false"/>
-		<setting type="action"	id="audiooutput.config.2"				label="32122"	action="RunScript($ID, audiooutput.config, 2)"/>
-		<setting type="text"	id="audiooutput.config.value.2"							visible="false"/>
-		<setting type="action"	id="audiooutput.samplerate.2"			label="32123"	action="RunScript($ID, audiooutput.samplerate, 2)"/>
-		<setting type="text"	id="audiooutput.samplerate.value.2"						visible="false"/>		
-		<setting type="bool"	id="audiooutput.stereoupmix.2"			label="32124"/>
-		<setting type="bool"	id="audiooutput.normalizelevels.2"		label="32125"/>
-		<setting type="action"	id="audiooutput.processquality.2"		label="32126"	action="RunScript($ID, audiooutput.processquality, 2)"/>
-		<setting type="text"	id="audiooutput.processquality.value.2"					visible="false"/>
-		<setting type="action"	id="audiooutput.streamsilence.2"		label="32127"	action="RunScript($ID, audiooutput.streamsilence, 2)"/>
-		<setting type="text"	id="audiooutput.streamsilence.value.2"					visible="false"/>
-		<setting type="action"	id="audiooutput.guisoundmode.2"			label="32128"	action="RunScript($ID, audiooutput.guisoundmode, 2)"/>
-		<setting type="text"	id="audiooutput.guisoundmode.value.2"					visible="false"/>
-		<setting type="bool"	id="audiooutput.passthrough.2"			label="32129"/>
-		<setting type="action"	id="audiooutput.passthroughdevice.2"	label="32130"	action="RunScript($ID, audiooutput.passthroughdevice, 2)"/>
-		<setting type="text"	id="audiooutput.passthroughdevice.value.2"				visible="false"/>
-		<setting type="bool"	id="audiooutput.ac3passthrough.2" 		label="32131"/>
-		<setting type="bool"	id="audiooutput.ac3transcode.2" 		label="32132"/>
-		<setting type="bool"	id="audiooutput.eac3passthrough.2" 		label="32133"/>
-		<setting type="bool"	id="audiooutput.dtspassthrough.2" 		label="32134"/>
-		<setting type="bool"	id="audiooutput.truehdpassthrough.2"	label="32135"/>
-		<setting type="bool"	id="audiooutput.dtshdpassthrough.2" 	label="32136"/>
+		<setting type="action"	id="audiooutput.audiodevice.2"				label="32120"	visible="true"							action="RunScript($ID, audiooutput.audiodevice, 2)"/>
+		<setting type="text"	id="audiooutput.audiodevice.value.2"						visible="false"/>
+		<setting type="text"	id="profile.audiodevicecategory.2"							visible="true"/>
+		<setting type="action"	id="audiooutput.channels.2"					label="32121"	visible="!eq(-1,SPDIF)"					action="RunScript($ID, audiooutput.channels, 2)"/>
+		<setting type="text"	id="audiooutput.channels.value.2"							visible="false"/>
+		<setting type="action"	id="audiooutput.config.2"					label="32122"	visible="true"							action="RunScript($ID, audiooutput.config, 2)"/>
+		<setting type="text"	id="audiooutput.config.value.2"								visible="false"/>
+		<setting type="action"	id="audiooutput.samplerate.2"				label="32123"	visible="eq(-5,SPDIF)"					action="RunScript($ID, audiooutput.samplerate, 2)"/>
+		<setting type="text"	id="audiooutput.samplerate.value.2"							visible="false"/>		
+		<setting type="bool"	id="audiooutput.stereoupmix.value.2"		label="32124"	visible="true"/>
+		<setting type="bool"	id="audiooutput.normalizelevels.value.2"	label="32125"	visible="true"/>
+		<setting type="action"	id="audiooutput.processquality.2"			label="32126"	visible="true"							action="RunScript($ID, audiooutput.processquality, 2)"/>
+		<setting type="text"	id="audiooutput.processquality.value.2"						visible="false"/>
+		<setting type="action"	id="audiooutput.streamsilence.2"			label="32127"	visible="true"							action="RunScript($ID, audiooutput.streamsilence, 2)"/>
+		<setting type="text"	id="audiooutput.streamsilence.value.2"						visible="false"/>
+		<setting type="action"	id="audiooutput.guisoundmode.2"				label="32128"	visible="true"							action="RunScript($ID, audiooutput.guisoundmode, 2)"/>
+		<setting type="text"	id="audiooutput.guisoundmode.value.2"						visible="false"/>
+		<setting type="bool"	id="audiooutput.passthrough.value.2"		label="32129"	visible="!eq(-15,Analog) + !eq(-15,)"/>
+		<setting type="action"	id="audiooutput.passthroughdevice.2"		label="32130"	visible="!eq(-16,Analog) + !eq(-16,)"	action="RunScript($ID, audiooutput.passthroughdevice, 2)"/>
+		<setting type="text"	id="audiooutput.passthroughdevice.value.2"					visible="false"/>
+		<setting type="bool"	id="audiooutput.ac3passthrough.value.2" 	label="32131" 	visible="!eq(-18,Analog) + !eq(-18,)"/>
+		<setting type="bool"	id="audiooutput.ac3transcode.value.2" 		label="32132" 	visible="!eq(-19,Analog) + !eq(-19,)"/>
+		<setting type="bool"	id="audiooutput.eac3passthrough.value.2" 	label="32133" 	visible="!eq(-20,Analog) + !eq(-20,)"/>
+		<setting type="bool"	id="audiooutput.dtspassthrough.value.2" 	label="32134" 	visible="!eq(-21,Analog) + !eq(-21,)"/>
+		<setting type="bool"	id="audiooutput.truehdpassthrough.value.2"	label="32135" 	visible="!eq(-22,Analog) + !eq(-22,)"/>
+		<setting type="bool"	id="audiooutput.dtshdpassthrough.value.2" 	label="32136" 	visible="!eq(-23,Analog) + !eq(-23,)"/>
+	
 	</category>
 </settings>
