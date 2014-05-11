@@ -31,8 +31,8 @@ import utils
 # to create dialog windows with system options
 if len(sys.argv) == 3:
 
-	parameter1 = sys.argv[1]
-	parameter2 = sys.argv[2]
+	parameter1 = sys.argv[1].decode("utf-8")
+	parameter2 = sys.argv[2].decode("utf-8")
 	
 	# Audio Device dialog
 	if parameter1 == 'audiooutput.audiodevice':

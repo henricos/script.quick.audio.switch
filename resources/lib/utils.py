@@ -15,6 +15,9 @@ def notify(txt):
 # ############################################################
 	
 def writeToLog(message, xbmcloglevel=xbmc.LOGNOTICE):
+    if isinstance (message, str):
+        message = message.decode("utf-8")	#if it is str we assume it's "utf-8" encoded.
+											#will fail if called with other encodings (latin, etc) BE ADVISED!
 	msg = u'[%s] %s' % (__addonid__, message)
 	xbmc.log(msg.encode("utf-8"), xbmcloglevel)
 
